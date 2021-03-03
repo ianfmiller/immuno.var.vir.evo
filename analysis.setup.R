@@ -138,11 +138,11 @@ getCFRs<-function()
   
   CFRall<-sum(CFRs*startconds[1:n.immunity.categories])
   
-  if (p.vacc<1)
-  {CFRvacc<-(sum(CFRs[2:n.immunity.categories]*startconds[2:n.immunity.categories])+ifelse(startconds[1]>0,CFRs[1]*startconds[1]*(1-(1-p.vacc)/startconds[1]),0))/p.vacc}
+  if (p.immune<1)
+  {CFRvacc<-(sum(CFRs[2:n.immunity.categories]*startconds[2:n.immunity.categories])+ifelse(startconds[1]>0,CFRs[1]*startconds[1]*(1-(1-p.immune)/startconds[1]),0))/p.immune}
   else {CFRvacc<-CFRall}
   
-  CFRnonvacc<-(CFRs[1]*startconds[1]*((1-p.vacc)/startconds[1]))/(1-p.vacc) #equal to CFRs[1]
+  CFRnonvacc<-(CFRs[1]*startconds[1]*((1-p.immune)/startconds[1]))/(1-p.immune) #equal to CFRs[1]
   
   CFRs<<-c(CFRs,CFRall,CFRvacc,CFRnonvacc)
   names(CFRs)[]<<-c(immunity.categories,"all","vacc","nonvacc")
@@ -210,42 +210,42 @@ introduce.invader.strain<-function(p)
 }
 
 #### sets immunity to be beta distributed
-#### when p.vacc parameter is> 0, a fraction 1-p.vacc of population has 0 immunity and a fraction p.vacc has immunity defined by beta function
-set.immunity.dist.beta<-function(alpha,beta,p.vacc) {immunity.distribution<<-function(x)
+#### when p.immune parameter is> 0, a fraction 1-p.immune of population has 0 immunity and a fraction p.immune has immunity defined by beta function
+set.immunity.dist.beta<-function(alpha,beta,p.immune) {immunity.distribution<<-function(x)
 {
   weights<-c()
   for (i in dummy.immunity.categories) {weights<-c(weights,dbeta(i,alpha,beta))}
   weight.adj<-sum(weights)
   
-  fun<-function(xx) {if (xx==min(dummy.immunity.categories)) {(1-p.vacc)+p.vacc*dbeta(xx,alpha,beta)/weight.adj} else {p.vacc*dbeta(xx,alpha,beta)/weight.adj}}
+  fun<-function(xx) {if (xx==min(dummy.immunity.categories)) {(1-p.immune)+p.immune*dbeta(xx,alpha,beta)/weight.adj} else {p.immune*dbeta(xx,alpha,beta)/weight.adj}}
   mapply(fun,x)
 }}
 
 ### sets immunity to be binary
-#### when p.vacc parameter is> 0, a fraction 1-p.vacc of population has 0 immunity and a fraction p.vacc has immunity defined by binary funciton
+#### when p.immune parameter is> 0, a fraction 1-p.immune of population has 0 immunity and a fraction p.immune has immunity defined by binary funciton
 
-set.immunity.dist.split.vac<-function(p.vacc) {immunity.distribution<<-function(x)
+set.immunity.dist.split.vac<-function(p.immune) {immunity.distribution<<-function(x)
 {
   
   fun<-function(xx){
     dens<-0
-    if (xx==min(dummy.immunity.categories)) {dens<-.5*p.vacc+(1-p.vacc)}
-    if (xx==max(dummy.immunity.categories)) {dens<-.5*p.vacc}
+    if (xx==min(dummy.immunity.categories)) {dens<-.5*p.immune+(1-p.immune)}
+    if (xx==max(dummy.immunity.categories)) {dens<-.5*p.immune}
     dens}
   mapply(fun,x)
   
 }}
 
 ### sets immunity to have no variation
-#### when p.vacc parameter is> 0, a fraction 1-p.vacc of population has 0 immunity and a fraction p.vacc has immunity
+#### when p.immune parameter is > 0, a fraction 1-p.immune of population has 0 immunity and a fraction p.immune has immunity
 
-set.immunity.dist.single.vac<-function(p.vacc) {immunity.distribution<<-function(x)
+set.immunity.dist.single.vac<-function(p.immune) {immunity.distribution<<-function(x)
 {
   
   fun<-function(xx){
     dens<-0
-    if (xx==min(dummy.immunity.categories)) {dens<-1-p.vacc}
-    if (xx==median(dummy.immunity.categories)) {dens<-p.vacc}
+    if (xx==min(dummy.immunity.categories)) {dens<-1-p.immune}
+    if (xx==median(dummy.immunity.categories)) {dens<-p.immune}
     dens}
   mapply(fun,x)
   
