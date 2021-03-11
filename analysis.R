@@ -41,9 +41,9 @@ dyn.load(paste("sirmodessDD", .Platform$dynlib.ext, sep = ""))
 for (v1 in virulence.steps)
 {
   #setup
-  if (alpha>0) {set.immunity.dist.beta(alpha,beta,p.vacc)}
-  if(alpha==-1) {set.immunity.dist.split(p.vacc)}
-  if(alpha==-2) {set.immunity.dist.single(p.vacc)}
+  if (alpha>0) {set.immunity.dist.beta(alpha,beta)}
+  if(alpha==-1) {set.immunity.dist.split()}
+  if(alpha==-2) {set.immunity.dist.single()}
   
   #simulate epidemic & pull equilibirum parameters
   v2<-0
