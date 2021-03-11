@@ -211,7 +211,7 @@ introduce.invader.strain<-function(p)
 
 #### sets immunity to be beta distributed
 #### when p.immune parameter is> 0, a fraction 1-p.immune of population has 0 immunity and a fraction p.immune has immunity defined by beta function
-set.immunity.dist.beta<-function(alpha,beta,p.immune) {immunity.distribution<<-function(x)
+set.immunity.dist.beta<-function(alpha,beta,p.immune=1) {immunity.distribution<<-function(x)
 {
   weights<-c()
   for (i in dummy.immunity.categories) {weights<-c(weights,dbeta(i,alpha,beta))}
@@ -224,7 +224,7 @@ set.immunity.dist.beta<-function(alpha,beta,p.immune) {immunity.distribution<<-f
 ### sets immunity to be binary
 #### when p.immune parameter is> 0, a fraction 1-p.immune of population has 0 immunity and a fraction p.immune has immunity defined by binary funciton
 
-set.immunity.dist.split.vac<-function(p.immune) {immunity.distribution<<-function(x)
+set.immunity.dist.split.vac<-function(p.immune=1) {immunity.distribution<<-function(x)
 {
   
   fun<-function(xx){
@@ -239,7 +239,7 @@ set.immunity.dist.split.vac<-function(p.immune) {immunity.distribution<<-functio
 ### sets immunity to have no variation
 #### when p.immune parameter is > 0, a fraction 1-p.immune of population has 0 immunity and a fraction p.immune has immunity
 
-set.immunity.dist.single.vac<-function(p.immune) {immunity.distribution<<-function(x)
+set.immunity.dist.single.vac<-function(p.immune=1) {immunity.distribution<<-function(x)
 {
   
   fun<-function(xx){
