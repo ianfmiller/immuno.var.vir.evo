@@ -16,7 +16,7 @@ layout.mat[4,]<-c(22,16,16,17,17,18,18,19,19,23)
 layout.mat[5,]<-rep(c(20,21),each=5)
 layout.mat[6,]<-rep(c(20,21),each=5)
 layout(layout.mat)
-par(mar=c(4,4,2,1))
+par(mar=c(4,4,3,1))
 
 set.immunity.dist.split()
 initial.infection.structure<-function(x) {0.0*scaled.immunity.distribution(x)}
@@ -29,28 +29,28 @@ for (alpha in alphas)
   set.immunity.dist.beta(alpha,beta)
   initial.infection.structure<-function(x) {0.0*scaled.immunity.distribution(x)}
   get.startconds()
-  z<-alpha
-  plot.startconds.2(ymax=.25,col=plot.colors[which(alphas==alpha)],main=substitute(paste(alpha," = ",beta," = ",10^z)))
+  plot.startconds.2(ymax=.25,col=plot.colors[which(alphas==alpha)],main=substitute(paste(alpha," = ",beta," = ",10^z),list(z=log10(alpha))))
 }
 
 set.immunity.dist.single()
 initial.infection.structure<-function(x) {0.0*scaled.immunity.distribution(x)}
 get.startconds()
-plot.startconds.2(ymax=.25,col="darkgrey")
+plot.startconds.2(ymax=.25,col="darkgrey",main="singular")
 
-plot(0,0,xlim=c(-2.25,2.25),ylim=c(0,1),xlab="log 10 alpha",ylab="mean",type="n",axes = F)
+par(mar=c(5,5,5,5))
+plot(0,0,xlim=c(-2.25,2.25),ylim=c(0,1),xlab=expression(log[10](alpha)),ylab="mean",type="n",axes = F,cex.lab=2)
 box()
-axis(1,at=c(-2,-1,0,1,2),labels=c(-2,-1,0,1,2))
-axis(1,at=c(-2.25,2.25),labels=c("split","fixed"),las=2)
-axis(2)
-abline(v=-2.125,col="grey",lty=2)
-abline(v=2.125,col="grey",lty=2)
+axis(1,at=c(-2,-1,0,1,2),labels=c(-2,-1,0,1,2),cex.axis=1.5)
+axis(1,at=c(-2.25,2.25),labels=c("split","fixed"),las=2,cex.axis=1.5)
+axis(2,cex.axis=1.5)
+abline(v=-2.125,col="grey",lty=2,lwd=2.5)
+abline(v=2.125,col="grey",lty=2,lwd=2.5)
 
 set.immunity.dist.split()
 initial.infection.structure<-function(x) {0.0*scaled.immunity.distribution(x)}
 get.startconds()
 yy<-weighted.mean(immunity.categories,scaled.immunity.distribution(dummy.immunity.categories))
-points(-2.25,yy,col="black",pch=16,cex=1.5)
+points(-2.25,yy,col="black",pch=16,cex=4)
 
 for (alpha in alphas)
 {
@@ -59,28 +59,29 @@ for (alpha in alphas)
   initial.infection.structure<-function(x) {0.0*scaled.immunity.distribution(x)}
   get.startconds()
   yy<-weighted.mean(immunity.categories,scaled.immunity.distribution(dummy.immunity.categories))
-  points(log10(alpha),yy,col=plot.colors[which(alphas==alpha)],pch=16,cex=1.5)
+  points(log10(alpha),yy,col=plot.colors[which(alphas==alpha)],pch=16,cex=4)
 }
 
 set.immunity.dist.single()
 initial.infection.structure<-function(x) {0.0*scaled.immunity.distribution(x)}
 get.startconds()
 yy<-weighted.mean(immunity.categories,scaled.immunity.distribution(dummy.immunity.categories))
-points(2.25,yy,col="darkgrey",pch=16,cex=1.5)
+points(2.25,yy,col="darkgrey",pch=16,cex=4)
 
-plot(0,0,xlim=c(-2.25,2.25),ylim=c(0,.25),xlab="log 10 alpha",ylab="var",type="n",axes = F)
+par(mar=c(5,5,5,5))
+plot(0,0,xlim=c(-2.25,2.25),ylim=c(-.05,.3),xlab=expression(log[10](alpha)),ylab="variance",type="n",axes = F,cex.lab=2)
 box()
-axis(1,at=c(-2,-1,0,1,2),labels=c(-2,-1,0,1,2))
-axis(1,at=c(-2.25,2.25),labels=c("split","fixed"),las=2)
-axis(2)
-abline(v=-2.125,col="grey",lty=2)
-abline(v=2.125,col="grey",lty=2)
+axis(1,at=c(-2,-1,0,1,2),labels=c(-2,-1,0,1,2),cex.axis=1.5)
+axis(1,at=c(-2.25,2.25),labels=c("split","fixed"),las=2,cex.axis=1.5)
+axis(2,cex.axis=1.5)
+abline(v=-2.125,col="grey",lty=2,lwd=2.5)
+abline(v=2.125,col="grey",lty=2,lwd=2.5)
 
 set.immunity.dist.split()
 initial.infection.structure<-function(x) {0.0*scaled.immunity.distribution(x)}
 get.startconds()
 yy<-var.func(scaled.immunity.distribution(dummy.immunity.categories),immunity.categories)
-points(-2.25,yy,col="black",pch=16,cex=1.5)
+points(-2.25,yy,col="black",pch=16,cex=4)
 
 for (alpha in alphas)
 {
@@ -89,13 +90,13 @@ for (alpha in alphas)
   initial.infection.structure<-function(x) {0.0*scaled.immunity.distribution(x)}
   get.startconds()
   yy<-var.func(scaled.immunity.distribution(dummy.immunity.categories),immunity.categories)
-  points(log10(alpha),yy,col=plot.colors[which(alphas==alpha)],pch=16,cex=1.5)
+  points(log10(alpha),yy,col=plot.colors[which(alphas==alpha)],pch=16,cex=4)
 }
 
 set.immunity.dist.single()
 initial.infection.structure<-function(x) {0.0*scaled.immunity.distribution(x)}
 get.startconds()
 yy<-var.func(scaled.immunity.distribution(dummy.immunity.categories),immunity.categories)
-points(2.25,yy,col="darkgrey",pch=16,cex=1.5)
+points(2.25,yy,col="darkgrey",pch=16,cex=4)
 
 
