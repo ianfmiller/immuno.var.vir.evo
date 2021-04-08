@@ -18,11 +18,11 @@ alphas<-10^(seq(-2,2,.25)) #### distribution parameters
 ### get relative frequency of immune categories within total pop
 scaled.immunity.distribution<-function(x) {immunity.distribution(x)/sum(mapply(immunity.distribution,dummy.immunity.categories))}
 
-### set initial infection structure, assume 10% infected
-initial.infection.structure<-function(x) {0.1*scaled.immunity.distribution(x)}
+### set initial infection structure, assume 1% infected
+initial.infection.structure<-function(x) {0.01*scaled.immunity.distribution(x)}
 
 ### set initial recovered structure, assume no recovered individuals
-initial.recovered.structure<-function(x) {0*scaled.immunity.distribution(x)} #sets % recovered to 0
+initial.recovered.structure<-function(x) {0*scaled.immunity.distribution(x)}
 
 ### get starting conditions for evo analyses
 get.startconds<-function()
@@ -125,6 +125,7 @@ return(R0)
 }
 
 ### gets disease associated mortality rates for each immunity category, as well as average across all categories
+#### additional values returned: CFRvacc=CFR for individuals with any immunity; CFRnonvacc=CFR for individuals with no immunity
 
 getCFRs<-function()
 {
@@ -224,7 +225,7 @@ set.immunity.dist.beta<-function(alpha,beta,p.immune=1) {immunity.distribution<<
 ### sets immunity to be binary
 #### when p.immune parameter is> 0, a fraction 1-p.immune of population has 0 immunity and a fraction p.immune has immunity defined by binary funciton
 
-set.immunity.dist.split.vac<-function(p.immune=1) {immunity.distribution<<-function(x)
+set.immunity.dist.split<-function(p.immune=1) {immunity.distribution<<-function(x)
 {
   
   fun<-function(xx){
@@ -239,7 +240,7 @@ set.immunity.dist.split.vac<-function(p.immune=1) {immunity.distribution<<-funct
 ### sets immunity to have no variation
 #### when p.immune parameter is > 0, a fraction 1-p.immune of population has 0 immunity and a fraction p.immune has immunity
 
-set.immunity.dist.single.vac<-function(p.immune=1) {immunity.distribution<<-function(x)
+set.immunity.dist.single<-function(p.immune=1) {immunity.distribution<<-function(x)
 {
   
   fun<-function(xx){
