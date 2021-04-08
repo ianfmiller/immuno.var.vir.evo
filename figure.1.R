@@ -8,18 +8,20 @@ plot.colors<-c(colorRampPalette(c("green4","palegreen"))(8),"goldenrod",colorRam
 alphas<-10^(seq(-2,2,.25))
 x<-seq(0,1,.01)
 
-layout.mat<-matrix(NA,4,10)
+layout.mat<-matrix(NA,6,10)
 layout.mat[1,]<-rep(c(1,2,3,4,5),each=2)
 layout.mat[2,]<-rep(c(6,7,8,9,10),each=2)
 layout.mat[3,]<-rep(c(11,12,13,14,15),each=2)
-layout.mat[4,]<-c(20,16,16,17,17,18,18,19,19,21)
+layout.mat[4,]<-c(22,16,16,17,17,18,18,19,19,23)
+layout.mat[5,]<-rep(c(20,21),each=5)
+layout.mat[6,]<-rep(c(20,21),each=5)
 layout(layout.mat)
 par(mar=c(4,4,2,1))
 
 set.immunity.dist.split()
 initial.infection.structure<-function(x) {0.0*scaled.immunity.distribution(x)}
 get.startconds()
-plot.startconds.2(ymax=.25,col="black")
+plot.startconds.2(ymax=.25,col="black",main="split")
 
 for (alpha in alphas)
 {
@@ -27,7 +29,8 @@ for (alpha in alphas)
   set.immunity.dist.beta(alpha,beta)
   initial.infection.structure<-function(x) {0.0*scaled.immunity.distribution(x)}
   get.startconds()
-  plot.startconds.2(ymax=.25,col=plot.colors[which(alphas==alpha)])
+  z<-alpha
+  plot.startconds.2(ymax=.25,col=plot.colors[which(alphas==alpha)],main=substitute(paste(alpha," = ",beta," = ",10^z)))
 }
 
 set.immunity.dist.single()
@@ -35,9 +38,6 @@ initial.infection.structure<-function(x) {0.0*scaled.immunity.distribution(x)}
 get.startconds()
 plot.startconds.2(ymax=.25,col="darkgrey")
 
-##############################################################################
-
-par(mfrow=c(1,2))
 plot(0,0,xlim=c(-2.25,2.25),ylim=c(0,1),xlab="log 10 alpha",ylab="mean",type="n",axes = F)
 box()
 axis(1,at=c(-2,-1,0,1,2),labels=c(-2,-1,0,1,2))

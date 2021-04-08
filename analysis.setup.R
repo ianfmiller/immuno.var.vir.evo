@@ -253,12 +253,15 @@ set.immunity.dist.single<-function(p.immune=1) {immunity.distribution<<-function
 }}
 
 ### modified version of function for plotting immunity distributions
-plot.startconds.2<-function(ymax=1,col="black")
+plot.startconds.2<-function(ymax=1,col="black",main)
 {
   bin.size<-immunity.categories[2]-immunity.categories[1]
-  plot(0,0,col="white",xlim=c(-.05,1.05),ylim=c(0,ymax),axes = F,xlab="immunity",ylab="frequency",bty="n")
-  axis(1)
-  axis(2)
+  plot(0,0,col="white",xlim=c(-.05,1.05),ylim=c(0,ymax),axes = F,xlab="",ylab="",bty="n")
+  mtext("immunity",side=1,cex=1,line=2.5)
+  mtext("frequency",side=2,cex=1,line=2.5)
+  axis(1,cex.axis=1.1)
+  axis(2,cex.axis=1.1)
+  mtext(main,side = 3,cex=1.1,line = .25)
   for(i in 1:n.immunity.categories)
   {
     rect(immunity.categories[i]-bin.size*.5,0,immunity.categories[i]+bin.size*.5,startconds[i],col = col,lty=0,border = NA)
