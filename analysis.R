@@ -1,6 +1,7 @@
 ### ESS analysis ###
 ## to iterate on cluster
 library(deSolve)
+library(parallel)
 source("~/Documents/GitHub/immuno.var.vir.evo/analysis.setup.R")
 
 w<-0
@@ -38,8 +39,10 @@ source("writeSIResscDD.R")
 system("R CMD SHLIB sirmodessDD.c")
 dyn.load(paste("sirmodessDD", .Platform$dynlib.ext, sep = ""))
 
-for (v1 in virulence.steps)
+analysis.func<-function(i)
 {
+  v1<-i
+  result<-data.frame("RE.res.val"=numeric(),"RE.inv.val"=numeric(),"xindex"=numeric(),"yindex"=numeric())
   #setup
   if (alpha>0) {set.immunity.dist.beta(alpha,beta)}
   if(alpha==-1) {set.immunity.dist.split()}
@@ -59,17 +62,22 @@ for (v1 in virulence.steps)
   {
     parms2 <-c(birth.rate=birth.rate,death.rate=death.rate,K=K,v1=v1,v2=v2,b1=b1,b2=b2,d1=d1,d2=d2,c1=c1,w=w,x=x,y=y,z=z,startconds) #use startdonds to set birth rates as this is carry over from first simulation. Use startconds.epi.equi for starting conditions.
     out <- ode(startconds.epi.equi, c(0,0), func = "derivs", parms = parms2,dllname = "sirmodessDD",initfunc = "initmod", nout = 4*n.immunity.categories^2, outnames = paste("out",seq(0,4*n.immunity.categories^2-1,1),sep=""),verbose=F,method="lsoda")
-    get.matricies()
+    get.matricies(output=out)
     RE.res<-getR0(Fmat.res,Vmat.res,output=F)
     RE.inv<-getR0(Fmat.inv,Vmat.inv,output=F)
-    
-    #record R0/REs
     xindex<-which(colnames(RE.inv.mat)==v1)
     yindex<-which(colnames(RE.inv.mat)==v2)
-    RE.res.mat[xindex,yindex]<-RE.res
-    RE.inv.mat[xindex,yindex]<-RE.inv
+    result<-rbind(result,cbind(RE.res,RE.inv,xindex,yindex))
   }
-  print(paste("finished v1: ",v1,sep=""))
+  result
+}
+
+raw.analysis.out<-mcmapply(analysis.func,virulence.steps,SIMPLIFY = F,mc.cores = 4)
+analysis.out<-data.frame("RE.res.val"=numeric(),"RE.inv.val"=numeric(),"xindex"=numeric(),"yindex"=numeric())
+
+for (i in 1:length(raw.analysis.out))
+{
+  analysis.out<-rbind(analysis.out,raw.analysis.out[[i]])
 }
 
 out<-c(alpha,ess.analysis(RE.inv.mat))
