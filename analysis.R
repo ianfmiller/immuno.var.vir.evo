@@ -1,7 +1,7 @@
 ### ESS analysis ###
 ## to iterate on cluster
 library(deSolve)
-source("~/var.vir/analysis.setup.R")
+source("~/Documents/GitHub/immuno.var.vir.evo/analysis.setup.R")
 
 w<-0
 x<-0
