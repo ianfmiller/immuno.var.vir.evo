@@ -87,5 +87,5 @@ names(out)<-c("shape","PIP","ES vir","repeller?","repeller vir","hyper vir?","up
 if(dir.exists("~/immuno.var.vir.evo/output"))
 {
   setwd("~/immuno.var.vir.evo/output")
-  saveRDS(out,file=paste("p",p.vacc,"W",w,"X",x,"Y",y,"Z",z,".Rds",sep=""))
+  saveRDS(out,file=paste("p",p.immune,"W",w,"X",x,"Y",y,"Z",z,".Rds",sep=""))
 }
