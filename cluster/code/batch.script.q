@@ -11,5 +11,5 @@
 
 
 INDEX=$(( $SLURM_ARRAY_TASK_ID + 0 ))
-cd ~/hetero/dir.$INDEX
+cd ~/immuno.var.vir.evo/p0W0X0Y0Z0/dir.$INDEX
 srun R CMD BATCH analysis.R
