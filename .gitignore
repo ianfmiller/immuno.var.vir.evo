@@ -6,3 +6,4 @@
 *.o
 *.so
 *.Rproj
+*.DS_Store
