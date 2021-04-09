@@ -81,6 +81,11 @@ for (i in 1:length(raw.analysis.out))
 }
 
 out<-c(alpha,ess.analysis(RE.inv.mat))
-
 names(out)<-c("shape","PIP","ES vir","repeller?","repeller vir","hyper vir?","upper erad?","upper erad vir","lower erad?","lower erad vir","mid.erad.lower?","mid.erad.lower.vir","mid.erad.upper?","mid.erad.upper.vir")
-saveRDS(out,file=paste("p",p.vacc,"W",w,"X",x,"Y",y,"Z",z,".Rds",sep=""))
+
+# save file if working on cluster
+if(dir.exists("~/immuno.var.vir.evo/output"))
+{
+  setwd("~/immuno.var.vir.evo/output")
+  saveRDS(out,file=paste("p",p.vacc,"W",w,"X",x,"Y",y,"Z",z,".Rds",sep=""))
+}
