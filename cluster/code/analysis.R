@@ -2,7 +2,7 @@
 ## to iterate on cluster
 library(deSolve)
 library(parallel)
-source("~/Documents/GitHub/immuno.var.vir.evo/analysis.setup.R")
+source("analysis.setup.R")
 
 w<-0
 x<-0
