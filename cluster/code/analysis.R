@@ -80,8 +80,11 @@ for (i in 1:length(raw.analysis.out))
   analysis.out<-rbind(analysis.out,raw.analysis.out[[i]])
 }
 
+RE.inv.mat<-matrix(analysis.out$RE.inv,length(virulence.steps),length(virulence.steps))
+RE.res.mat<-matrix(analysis.out$RE.res,length(virulence.steps),length(virulence.steps))
+
 out<-c(alpha,ess.analysis(RE.inv.mat))
-names(out)<-c("shape","PIP","ES vir","repeller?","repeller vir","hyper vir?","upper erad?","upper erad vir","lower erad?","lower erad vir","mid.erad.lower?","mid.erad.lower.vir","mid.erad.upper?","mid.erad.upper.vir")
+names(out)<-c("alpha","PIP","ES vir","hyper vir?")
 
 # save file if working on cluster
 if(dir.exists("~/immuno.var.vir.evo/output"))
