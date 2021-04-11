@@ -27,14 +27,6 @@ c1<<-1
 virulence.steps<-c(seq(0,.1,.005),seq(.10005,.25,by=.0005),seq(.25,1,.01),seq(1.1,10,.1),seq(11,100,1))
 set.nonlinear.tradeoff(b1,b2,d1,d2,c1)
 
-RE.inv.mat<-matrix(NA,length(virulence.steps),length(virulence.steps)) #rows=res strategy #columns=invader strategy
-colnames(RE.inv.mat)<-virulence.steps
-row.names(RE.inv.mat)<-virulence.steps
-
-RE.res.mat<-matrix(NA,length(virulence.steps),length(virulence.steps)) #rows=res strategy #columns=invader strategy
-colnames(RE.res.mat)<-virulence.steps
-row.names(RE.res.mat)<-virulence.steps
-
 source("writeSIResscDD.R")
 system("R CMD SHLIB sirmodessDD.c")
 dyn.load(paste("sirmodessDD", .Platform$dynlib.ext, sep = ""))
