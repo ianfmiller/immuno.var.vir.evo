@@ -13,7 +13,7 @@ batch.lines[14]<-paste("cd ~/immuno.var.vir.evo/",paste("p",p.immune,"W",w,"X",x
 writeLines(batch.lines,paste("p",p.immune,"W",w,"X",x,"Y",y,"Z",z,".q",sep=""))
 
 data.batch.lines<-readLines("~/immuno.var.vir.evo/code/data.batch.script.q")
-data.batch.lines[6]<-paste("#SBATCH -J",paste('"p',p.immune,"W",w,"X",x,"Y",y,"Z",z,'"',sep=""))
+data.batch.lines[6]<-paste("#SBATCH -J",paste('"p',p.immune,"W",w,"X",x,"Y",y,"Z",z,'.data"',sep=""))
 data.batch.lines[14]<-paste("cd ~/immuno.var.vir.evo/",paste("p",p.immune,"W",w,"X",x,"Y",y,"Z",z,sep=""),"/dir.$INDEX",sep="")
 writeLines(data.batch.lines,paste("p",p.immune,"W",w,"X",x,"Y",y,"Z",z,".data.q",sep=""))
 
