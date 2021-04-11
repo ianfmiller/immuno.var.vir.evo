@@ -1,7 +1,7 @@
 rm(list=ls())
 
 # parameter sets to explore
-params.mat<-data.frame("p.immune"=c(1,1,1,1,1),"w"=c(1,0,0,0,0),"x"=c(0,1,0,0,.5),"y"=c(0,0,1,0,0),"z"=c(0,1,0,1,1))
+params.mat<-data.frame("p.immune"=c(1,1,1,1,1),"w"=c(.5,0,0,0,0),"x"=c(0,.5,0,0,.25),"y"=c(0,0,.5,0,0),"z"=c(0,.5,0,.5,1))
 alphas<-c(-2,-1,10^(seq(-2,2,.25)))
 
 for(k in 1:dim(params.mat)[1])
