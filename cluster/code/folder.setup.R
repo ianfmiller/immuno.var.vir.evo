@@ -23,7 +23,6 @@ data.compilation.lines[grep("x<-",data.compilation.lines)]<-paste("x<-",x,sep=""
 data.compilation.lines[grep("y<-",data.compilation.lines)]<-paste("y<-",y,sep="")
 data.compilation.lines[grep("z<-",data.compilation.lines)]<-paste("z<-",z,sep="")
 data.compilation.lines[grep("p.immune<-",data.compilation.lines)]<-paste("p.immune<-",p.immune,sep="")
-data.compilation.lines[grep("alpha<-",data.compilation.lines)]<-paste("alpha<-",alphas[i],sep="")
 writeLines(data.compilation.lines,"data.compilation.R")
 
 for (i in 1:length(alphas))
@@ -46,3 +45,4 @@ for (i in 1:length(alphas))
   file.copy("~/immuno.var.vir.evo/code/analysis.setup.R",paste(new.dir,"/dir.",i,sep=""))
   file.copy("~/immuno.var.vir.evo/code/writeSIResscDD.R",paste(new.dir,"/dir.",i,sep=""))
 }
+
