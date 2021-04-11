@@ -65,8 +65,8 @@ analysis.func<-function(i)
     get.matricies(output=out)
     RE.res<-getR0(Fmat.res,Vmat.res,output=F)
     RE.inv<-getR0(Fmat.inv,Vmat.inv,output=F)
-    xindex<-which(colnames(RE.inv.mat)==v1)
-    yindex<-which(colnames(RE.inv.mat)==v2)
+    xindex<-which(virulence.steps==v1)
+    yindex<-which(virulence.steps==v2)
     result<-rbind(result,cbind(RE.res,RE.inv,xindex,yindex))
   }
   result
