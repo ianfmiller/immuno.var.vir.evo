@@ -5,6 +5,9 @@
 #SBATCH -N 1
 #SBATCH -J "p0W0X0Y0Z0"
 #SBATCH --array=1-19
+#SBATCH --sockets-per-node=1
+#SBATCH --cores-per-socket=4
+#SBATCH --mem=10g
 #SBATCH -t 0-03:00:00
 #SBATCH --mail-type=END
 #SBATCH --mail-user=ifmiller@princeton.edu
