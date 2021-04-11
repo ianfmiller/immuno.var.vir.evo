@@ -14,5 +14,8 @@ for(i in 1:dim(params.mat)[1])
   
   source("~/immuno.var.vir.evo/code/folder.setup.R")
   setwd(new.dir)
-  system("sbatch batch.script.q")
+  
+  cmd<-paste0("jid1=$(sbatch ",paste0("p",p.immune,"W",w,"X",x,"Y",y,"Z",z,".q;"),
+              " jid2=$(sbatch --dependency=afterany:${jid1##* } ",paste0("p",p.immune,"W",w,"X",x,"Y",y,"Z",z,".data.q"))
+  system(cmd)
 }
