@@ -35,7 +35,7 @@ for (i in 1:length(alphas))
   analysis.lines<-readLines("~/immuno.var.vir.evo/code/analysis.R")
   
   analysis.lines[grep("w<-",analysis.lines)]<-paste("w<-",w,sep="")
-  analysis.lines[grep("x<-",analysis.lines)]<-paste("x<-",x,sep="")
+  analysis.lines[grep("x<-",analysis.lines)[1]]<-paste("x<-",x,sep="")
   analysis.lines[grep("y<-",analysis.lines)]<-paste("y<-",y,sep="")
   analysis.lines[grep("z<-",analysis.lines)]<-paste("z<-",z,sep="")
   analysis.lines[grep("p.immune<-",analysis.lines)]<-paste("p.immune<-",p.immune,sep="")
