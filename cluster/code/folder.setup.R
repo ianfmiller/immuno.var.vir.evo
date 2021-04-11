@@ -9,12 +9,12 @@ if (length(dir()) > 0) {for (name in dir()) {file.remove(name)}}
 
 batch.lines<-readLines("~/immuno.var.vir.evo/code/batch.script.q")
 batch.lines[6]<-paste("#SBATCH -J",paste('"p',p.immune,"W",w,"X",x,"Y",y,"Z",z,'"',sep=""))
-batch.lines[14]<-paste("cd ~/immuno.var.vir.evo/",paste("p",p.immune,"W",w,"X",x,"Y",y,"Z",z,sep=""),"/dir.$INDEX",sep="")
+batch.lines[15]<-paste("cd ~/immuno.var.vir.evo/",paste("p",p.immune,"W",w,"X",x,"Y",y,"Z",z,sep=""),"/dir.$INDEX",sep="")
 writeLines(batch.lines,paste("p",p.immune,"W",w,"X",x,"Y",y,"Z",z,".q",sep=""))
 
 data.batch.lines<-readLines("~/immuno.var.vir.evo/code/data.batch.script.q")
 data.batch.lines[6]<-paste("#SBATCH -J",paste('"p',p.immune,"W",w,"X",x,"Y",y,"Z",z,'.data"',sep=""))
-data.batch.lines[14]<-paste("cd ~/immuno.var.vir.evo/",paste("p",p.immune,"W",w,"X",x,"Y",y,"Z",z,sep=""),"/dir.$INDEX",sep="")
+data.batch.lines[12]<-paste("cd ~/immuno.var.vir.evo/",paste("p",p.immune,"W",w,"X",x,"Y",y,"Z",z,sep=""),"/dir.$INDEX",sep="")
 writeLines(data.batch.lines,paste("p",p.immune,"W",w,"X",x,"Y",y,"Z",z,".data.q",sep=""))
 
 data.compilation.lines<-readLines("~/immuno.var.vir.evo/code/data.compilation.R")
