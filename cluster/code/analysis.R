@@ -18,7 +18,7 @@ death.rate=.05
 
 ### trade-off parameters
 K<-1/(-death.rate/birth.rate+1)
-b1<<-1
+b1<<-3
 b2<<-.333
 d1<<-.1
 d2<<-0
