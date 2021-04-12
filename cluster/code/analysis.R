@@ -34,7 +34,7 @@ dyn.load(paste("sirmodessDD", .Platform$dynlib.ext, sep = ""))
 analysis.func<-function(i)
 {
   v1<-i
-  result<-data.frame("RE.res.val"=numeric(),"RE.inv.val"=numeric(),"xindex"=numeric(),"yindex"=numeric())
+  result<-data.frame("v1"=numeric(),"v2"=numeric(),"RE.res.val"=numeric(),"RE.inv.val"=numeric(),"xindex"=numeric(),"yindex"=numeric())
   #setup
   if (alpha>0) {set.immunity.dist.beta(alpha,beta)}
   if(alpha==-1) {set.immunity.dist.split()}
@@ -57,9 +57,7 @@ analysis.func<-function(i)
     get.matricies(output=out)
     RE.res<-getR0(Fmat.res,Vmat.res,output=F)
     RE.inv<-getR0(Fmat.inv,Vmat.inv,output=F)
-    xindex<-which(virulence.steps==v1)
-    yindex<-which(virulence.steps==v2)
-    result<-rbind(result,cbind(RE.res,RE.inv,xindex,yindex))
+    result<-rbind(result,cbind(v1,v2,RE.res,RE.inv))
   }
   result
 }
@@ -72,11 +70,24 @@ for (i in 1:length(raw.analysis.out))
   analysis.out<-rbind(analysis.out,raw.analysis.out[[i]])
 }
 
-RE.inv.mat<-matrix(analysis.out$RE.inv,length(virulence.steps),length(virulence.steps))
-RE.res.mat<-matrix(analysis.out$RE.res,length(virulence.steps),length(virulence.steps))
+RE.inv.mat<-matrix(NA,length(virulence.steps),length(virulence.steps)) #rows=res strategy #columns=invader strategy
+colnames(RE.inv.mat)<-virulence.steps
+row.names(RE.inv.mat)<-virulence.steps
+
+RE.res.mat<-matrix(NA,length(virulence.steps),length(virulence.steps)) #rows=res strategy #columns=invader strategy
+colnames(RE.res.mat)<-virulence.steps
+row.names(RE.res.mat)<-virulence.steps
+
+for (i in 1:dim(analysis.out)[1])
+{
+  xindex<-which(virulence.steps==analysis.out[i,"v1"])
+  yindex<-which(virulence.steps==analysis.out[i,"v2"])
+  RE.res.mat[xindex,yindex]<-analysis.out[i,"RE.res"]
+  RE.inv.mat[xindex,yindex]<-analysis.out[i,"RE.inv"]
+}
 
 out<-c(alpha,ess.analysis(RE.inv.mat))
-names(out)<-c("alpha","PIP","ES vir","hyper vir?")
+names(out)<-c("shape","PIP","ES vir","repeller?","repeller vir","hyper vir?","upper erad?","upper erad vir","lower erad?","lower erad vir","mid.erad.lower?","mid.erad.lower.vir","mid.erad.upper?","mid.erad.upper.vir")
 
 # save file if working on cluster
 if(dir.exists("~/immuno.var.vir.evo/output"))
