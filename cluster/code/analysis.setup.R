@@ -72,10 +72,10 @@ plot.startconds<-function(ymax=1,main=paste("rate=",rate,sep=" "),border=NULL)
 
 set.immunity.effects<-function(w,x,y,z)
 {
-  w<<-function(sus.immunity.class) {w}
-  x<<-function(sus.immunity.class) {x}
-  y<<-function(inf.immunity.class) {y}
-  z<<-function(sus.immunity.class) {z}
+  w<<-function(sus.immunity.class) {w*sus.immunity.class}
+  x<<-function(sus.immunity.class) {x*sus.immunity.class}
+  y<<-function(inf.immunity.class) {y*inf.immunity.class}
+  z<<-function(sus.immunity.class) {z*sus.immunity.class}
 }
 
 ### set trade-off shape
