@@ -351,8 +351,6 @@ ess.analysis<-function(mat)
   
   if (isFALSE(any(diff(colSums(mod.mat))>0)) && any(mod.mat>0)) {output[5]<-"selection for 0 virulence"}
   
-  if (is.na(output[5]) && is.na(col.max) && is.na(col.min) && is.na(row.max) && is.na(row.min)) {output[5]<-"global eradication"}
-  
   if (!any(is.na(output)==F)) #this loop is for when theres a region around the ESS where nothing can invade. This is due to numerical errors
   {
     intersect(which(colSums(mod.mat)==max(colSums(mod.mat))),which(rowSums(mod.mat)==min(rowSums(mod.mat))))->overlap
@@ -394,6 +392,8 @@ ess.analysis<-function(mat)
       }
     }
   }
+  
+  if (is.na(output[5]) && is.na(col.max) && is.na(col.min) && is.na(row.max) && is.na(row.min)) {output[5]<-"global eradication"}
   
   return(output)
 }
