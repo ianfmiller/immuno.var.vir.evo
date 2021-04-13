@@ -110,84 +110,60 @@ abline(h=.05,lty=2,col="grey",lwd=2)
 abline(h=0,lty=2,col="grey",lwd=2)
 abline(h=.45,lty=2,col="grey",lwd=2)
 abline(h=.5,lty=2,col="grey",lwd=2)
-point.func(file.path="~/Documents/GitHub/immuno.var.vir.evo/results/p1W0X0Y0Z1.csv",pch=16)
+point.func(file.path="~/Documents/GitHub/immuno.var.vir.evo/results/p1W1X0Y0Z0.csv",pch=16)
 
-
-point.func("p0.9W1X0Y0Z0.csv",p.vacc=.9,pch=17)
-point.func("p0.5W1X0Y0Z0.csv",p.vacc=.5,pch=15)
-
-
-
-
-
-
-plot(0,0,xlim=c(0,.25),ylim=c(-.04,.24),xlab="variance",ylab="ES virulence",type="n",axes=F)
-mtext("W=0 X=1 Y=0 Z=1")
-axis(1)
-axis(2,at=c(0,.1,.2))
-axis(2,at=c(-.025,.225),labels=c("erad.","hypervir."),las=2,tick = F)
-abline(h=-.04,lty=2,col="grey")
-abline(h=-.01,lty=2,col="grey")
-abline(h=.21,lty=2,col="grey")
-abline(h=.24,lty=2,col="grey")
-point.func("p1W0X1Y0Z1.csv",p.vacc=1,pch=16)
-point.func("p0.9W0X1Y0Z1.csv",p.vacc=.9,pch=17)
-point.func("p0.5W0X1Y0Z1.csv",p.vacc=.5,pch=15)
-
-plot(0,0,xlim=c(0,.25),ylim=c(-.04,.24),xlab="variance",ylab="ES virulence",type="n",axes=F)
+plot(0,0,xlim=c(0,.25),ylim=c(0,.5),xlab="variance",ylab="ES virulence",type="n",axes=F)
 mtext("W=0 X=0 Y=1 Z=0")
 axis(1)
-axis(2,at=c(0,.1,.2))
-axis(2,at=c(-.025,.225),labels=c("erad.","hypervir."),las=2,tick = F)
-abline(h=-.04,lty=2,col="grey")
-abline(h=-.01,lty=2,col="grey")
-abline(h=.21,lty=2,col="grey")
-abline(h=.24,lty=2,col="grey")
-point.func("p1W0X0Y1Z0.csv",p.vacc=1,pch=16)
-point.func("p0.9W0X0Y1Z0.csv",p.vacc=.9,pch=17)
-point.func("p0.5W0X0Y1Z0.csv",p.vacc=.5,pch=15)
+axis(2,at=seq(.1,.4,.1))
+axis(2,at=c(.025,.475),labels=c("erad.","hypervir."),las=2,tick = F)
+abline(h=.05,lty=2,col="grey",lwd=2)
+abline(h=0,lty=2,col="grey",lwd=2)
+abline(h=.45,lty=2,col="grey",lwd=2)
+abline(h=.5,lty=2,col="grey",lwd=2)
+point.func(file.path="~/Documents/GitHub/immuno.var.vir.evo/results/p1W0X0Y1Z0.csv",pch=16)
 
-
-plot(0,0,xlim=c(0,.25),ylim=c(-.1,.6),xlab="variance",ylab="ES virulence",type="n",axes=F)
+plot(0,0,xlim=c(0,.25),ylim=c(0,.5),xlab="variance",ylab="ES virulence",type="n",axes=F)
 mtext("W=0 X=0 Y=0 Z=1")
 axis(1)
-axis(2,at=c(0,.1,.2,.3,.4,.5))
-axis(2,at=c(-.0625,.5625),labels=c("erad.","hypervir."),las=2,tick = F)
-abline(h=-.1,lty=2,col="grey")
-abline(h=-.025,lty=2,col="grey")
-abline(h=.525,lty=2,col="grey")
-abline(h=.6,lty=2,col="grey")
-point.func("p1W0X0Y0Z1.csv",p.vacc=1,pch=16)
-point.func("p0.9W0X0Y0Z1.csv",p.vacc=.9,pch=17)
-point.func("p0.5W0X0Y0Z1.csv",p.vacc=.5,pch=15)
+axis(2,at=seq(.1,.4,.1))
+axis(2,at=c(.025,.475),labels=c("erad.","hypervir."),las=2,tick = F)
+abline(h=.05,lty=2,col="grey",lwd=2)
+abline(h=0,lty=2,col="grey",lwd=2)
+abline(h=.45,lty=2,col="grey",lwd=2)
+abline(h=.5,lty=2,col="grey",lwd=2)
+point.func(file.path="~/Documents/GitHub/immuno.var.vir.evo/results/p1W0X0Y0Z1.csv",pch=16)
 
-plot(0,0,xlim=c(0,.25),ylim=c(-.1,.6),xlab="variance",ylab="ES virulence",type="n",axes=F)
+plot(0,0,xlim=c(0,.25),ylim=c(0,.5),xlab="variance",ylab="ES virulence",type="n",axes=F)
+mtext("W=0 X=1 Y=0 Z=1")
+axis(1)
+axis(2,at=seq(.1,.4,.1))
+axis(2,at=c(.025,.475),labels=c("erad.","hypervir."),las=2,tick = F)
+abline(h=.05,lty=2,col="grey",lwd=2)
+abline(h=0,lty=2,col="grey",lwd=2)
+abline(h=.45,lty=2,col="grey",lwd=2)
+abline(h=.5,lty=2,col="grey",lwd=2)
+point.func(file.path="~/Documents/GitHub/immuno.var.vir.evo/results/p1W0X1Y0Z1.csv",pch=16)
+
+plot(0,0,xlim=c(0,.25),ylim=c(0,.5),xlab="variance",ylab="ES virulence",type="n",axes=F)
 mtext("W=0 X=0.5 Y=0 Z=1")
 axis(1)
-axis(2,at=c(0,.1,.2,.3,.4,.5))
-axis(2,at=c(-.0625,.5625),labels=c("erad.","hypervir."),las=2,tick = F)
-abline(h=-.1,lty=2,col="grey")
-abline(h=-.025,lty=2,col="grey")
-abline(h=.525,lty=2,col="grey")
-abline(h=.6,lty=2,col="grey")
-point.func("p1W0X0.5Y0Z1.csv",p.vacc=1,pch=16)
-point.func("p0.9W0X0.5Y0Z1.csv",p.vacc=.9,pch=17)
-point.func("p0.5W0X0.5Y0Z1.csv",p.vacc=.5,pch=15)
+axis(2,at=seq(.1,.4,.1))
+axis(2,at=c(.025,.475),labels=c("erad.","hypervir."),las=2,tick = F)
+abline(h=.05,lty=2,col="grey",lwd=2)
+abline(h=0,lty=2,col="grey",lwd=2)
+abline(h=.45,lty=2,col="grey",lwd=2)
+abline(h=.5,lty=2,col="grey",lwd=2)
+point.func(file.path="~/Documents/GitHub/immuno.var.vir.evo/results/p1W0X0.5Y0Z1.csv",pch=16)
 
 plot(0,0,xlim=c(0,1),ylim=c(0,1),type="n",axes=F,xlab="",ylab="")
-points(0,.75,pch=16,cex=2)
-points(0,.5,pch=15,cex=2)
-points(0,.25,pch=17,cex=2)
-text(.025,.75,"%100 vaccination",pos=4)
-text(.025,.5,"%90 vaccination",pos=4)
-text(.025,.25,"%50 vaccination",pos=4)
 
 for (i in 1:19)
 {
-  points(.6,seq(0,1,length.out = 19)[i],col=c("black",colors,"grey")[i],pch=16,cex=1.5)
-  if (i==19) {text(.65,seq(0,1,length.out = 19)[i],"fixed",pos=4)}
-  if (i %in% c(6,10,14)) {{text(.65,seq(0,1,length.out = 19)[i],substitute(paste(alpha," = ",10^z),list(z=log10(alphas[i-1]))),pos=4)}}
-  if (i==1) {text(.65,seq(0,1,length.out = 19)[i],"split",pos=4)}
+  points(.25,seq(0,1,length.out = 19)[i],col=c("black",colors,"grey")[i],pch=16,cex=1.5)
+  if (i==19) {text(.3,seq(0,1,length.out = 19)[i],"fixed",pos=4)}
+  if (i %in% c(6,10,14)) {{text(.3,seq(0,1,length.out = 19)[i],substitute(paste(alpha," = ",10^z),list(z=log10(alphas[i-1]))),pos=4)}}
+  if (i==1) {text(.3,seq(0,1,length.out = 19)[i],"split",pos=4)}
 }
 
 
