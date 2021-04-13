@@ -1,20 +1,20 @@
-"","shape","PIP","ES vir","repeller?","repeller vir","hyper vir?","upper erad?","upper erad vir","lower erad?","lower erad vir","mid.erad.lower?","mid.erad.lower.vir","mid.erad.upper?","mid.erad.upper.vir"
-"data","-2","ESS","0.1498",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-"data","-1",NA,NA,NA,NA,"selection for hypervirulence",NA,NA,NA,NA,NA,NA,NA,NA
-"data","0.01",NA,NA,NA,NA,"selection for hypervirulence",NA,NA,NA,NA,NA,NA,NA,NA
-"data","0.0177827941003892",NA,NA,NA,NA,"selection for hypervirulence",NA,NA,NA,NA,NA,NA,NA,NA
-"data","0.0316227766016838",NA,NA,NA,NA,"selection for hypervirulence",NA,NA,NA,NA,NA,NA,NA,NA
-"data","0.0562341325190349",NA,NA,NA,NA,"selection for hypervirulence",NA,NA,NA,NA,NA,NA,NA,NA
-"data","0.1",NA,NA,NA,NA,"selection for hypervirulence",NA,NA,NA,NA,NA,NA,NA,NA
-"data","0.177827941003892",NA,NA,NA,NA,"selection for hypervirulence",NA,NA,NA,NA,NA,NA,NA,NA
-"data","0.316227766016838",NA,NA,NA,NA,"selection for hypervirulence",NA,NA,NA,NA,NA,NA,NA,NA
-"data","0.562341325190349","ESS","0.43",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-"data","1",NA,NA,NA,NA,"global eradication",NA,NA,NA,NA,NA,NA,NA,NA
-"data","1.77827941003892","ESS","0.1818",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-"data","3.16227766016838","ESS","0.16705",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-"data","5.62341325190349","ESS","0.15905",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-"data","10","ESS","0.15505",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-"data","17.7827941003892","ESS","0.15255",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-"data","31.6227766016838","ESS","0.1513",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-"data","56.2341325190349","ESS","0.15055",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-"data","100","ESS","0.1503",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+,shape,PIP,ES vir,repeller?,repeller vir,hyper vir?,upper erad?,upper erad vir,lower erad?,lower erad vir,mid.erad.lower?,mid.erad.lower.vir,mid.erad.upper?,mid.erad.upper.vir
+data,-2,ESS,0.1498,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+data,-1,NA,NA,NA,NA,selection for hypervirulence,NA,NA,NA,NA,NA,NA,NA,NA
+data,0.01,NA,NA,NA,NA,selection for hypervirulence,NA,NA,NA,NA,NA,NA,NA,NA
+data,0.017782794,NA,NA,NA,NA,selection for hypervirulence,NA,NA,NA,NA,NA,NA,NA,NA
+data,0.031622777,NA,NA,NA,NA,selection for hypervirulence,NA,NA,NA,NA,NA,NA,NA,NA
+data,0.056234133,NA,NA,NA,NA,selection for hypervirulence,NA,NA,NA,NA,NA,NA,NA,NA
+data,0.1,NA,NA,NA,NA,selection for hypervirulence,NA,NA,NA,NA,NA,NA,NA,NA
+data,0.177827941,NA,NA,NA,NA,selection for hypervirulence,NA,NA,NA,NA,NA,NA,NA,NA
+data,0.316227766,NA,NA,NA,NA,selection for hypervirulence,NA,NA,NA,NA,NA,NA,NA,NA
+data,0.562341325,ESS,0.43,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+data,1,NA,0.22175,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+data,1.77827941,ESS,0.1818,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+data,3.16227766,ESS,0.16705,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+data,5.623413252,ESS,0.15905,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+data,10,ESS,0.15505,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+data,17.7827941,ESS,0.15255,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+data,31.6227766,ESS,0.1513,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+data,56.23413252,ESS,0.15055,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+data,100,ESS,0.1503,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
