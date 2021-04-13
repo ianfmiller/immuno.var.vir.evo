@@ -1,6 +1,6 @@
 ### immunity distribution shapes, means, and variances
 library(deSolve)
-source("~/Documents/GitHub/immuno.var.vir.evo/analysis.setup.R")
+source("~/Documents/GitHub/immuno.var.vir.evo/cluster/code/analysis.setup.R")
 
 plot.colors<-c(colorRampPalette(c("green4","palegreen"))(8),"goldenrod",colorRampPalette(c("lightskyblue","royalblue2"))(8))
 
@@ -21,7 +21,7 @@ par(mar=c(4,4,3,1))
 set.immunity.dist.split()
 initial.infection.structure<-function(x) {0.0*scaled.immunity.distribution(x)}
 get.startconds()
-plot.startconds.2(ymax=.25,col="black",main="split")
+plot.startconds.2(ymax=.5,col="black",main="split")
 
 for (alpha in alphas)
 {
@@ -29,19 +29,19 @@ for (alpha in alphas)
   set.immunity.dist.beta(alpha,beta)
   initial.infection.structure<-function(x) {0.0*scaled.immunity.distribution(x)}
   get.startconds()
-  plot.startconds.2(ymax=.25,col=plot.colors[which(alphas==alpha)],main=substitute(paste(alpha," = ",beta," = ",10^z),list(z=log10(alpha))))
+  plot.startconds.2(ymax=.5,col=plot.colors[which(alphas==alpha)],main=substitute(paste(alpha," = ",beta," = ",10^z),list(z=log10(alpha))))
 }
 
 set.immunity.dist.single()
 initial.infection.structure<-function(x) {0.0*scaled.immunity.distribution(x)}
 get.startconds()
-plot.startconds.2(ymax=.25,col="darkgrey",main="singular")
+plot.startconds.2(ymax=1,col="darkgrey",main="homogeneous")
 
-par(mar=c(5,5,5,5))
+par(mar=c(6,5,3,5))
 plot(0,0,xlim=c(-2.25,2.25),ylim=c(0,1),xlab=expression(log[10](alpha)),ylab="mean",type="n",axes = F,cex.lab=2)
 box()
 axis(1,at=c(-2,-1,0,1,2),labels=c(-2,-1,0,1,2),cex.axis=1.5)
-axis(1,at=c(-2.25,2.25),labels=c("split","fixed"),las=2,cex.axis=1.5)
+axis(1,at=c(-2.25,2.25),labels=c("split","homog."),las=2,cex.axis=1.5)
 axis(2,cex.axis=1.5)
 abline(v=-2.125,col="grey",lty=2,lwd=2.5)
 abline(v=2.125,col="grey",lty=2,lwd=2.5)
@@ -68,11 +68,11 @@ get.startconds()
 yy<-weighted.mean(immunity.categories,scaled.immunity.distribution(dummy.immunity.categories))
 points(2.25,yy,col="darkgrey",pch=16,cex=4)
 
-par(mar=c(5,5,5,5))
+par(mar=c(6,5,3,5))
 plot(0,0,xlim=c(-2.25,2.25),ylim=c(-.05,.3),xlab=expression(log[10](alpha)),ylab="variance",type="n",axes = F,cex.lab=2)
 box()
 axis(1,at=c(-2,-1,0,1,2),labels=c(-2,-1,0,1,2),cex.axis=1.5)
-axis(1,at=c(-2.25,2.25),labels=c("split","fixed"),las=2,cex.axis=1.5)
+axis(1,at=c(-2.25,2.25),labels=c("split","homog."),las=2,cex.axis=1.5)
 axis(2,cex.axis=1.5)
 abline(v=-2.125,col="grey",lty=2,lwd=2.5)
 abline(v=2.125,col="grey",lty=2,lwd=2.5)
