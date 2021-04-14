@@ -1,5 +1,5 @@
 # setup and functions for ESS analysis ###
-
+library(deSolve)
 ## setup
 
 ### set immunity category midpoints for calculating frequencies
