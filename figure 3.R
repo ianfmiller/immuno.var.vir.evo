@@ -65,6 +65,7 @@ par(mar=c(6.1,7.1,5.1,5.1))
 
 plot(0,0,xlim=c(-2.25,2.25),ylim=c(.1,.8),xlab=expression(log[10](alpha)),ylab="CFR",type="n",axes=F,cex.lab=2)
 mtext("W=1 X=0 Y=0 Z=0",cex=2)
+mtext("A",adj=-.25,cex=1.5)
 axis(1,cex.axis=1.75)
 axis(2,at=seq(.1,.8,.1),cex.axis=1.75)
 axis(1,at=c(-2.25,2.25),labels=c("split","homog."),las=2,cex.axis=1.5,lwd=0,lwd.ticks = 1)
@@ -72,6 +73,7 @@ point.func(file.path="~/Documents/GitHub/immuno.var.vir.evo/results/p1W1X0Y0Z0.c
 
 plot(0,0,xlim=c(-2.25,2.25),ylim=c(.1,.8),xlab=expression(log[10](alpha)),ylab="CFR",type="n",axes=F,cex.lab=2)
 mtext("W=0 X=0 Y=1 Z=0",cex=2)
+mtext("B",adj=-.25,cex=1.5)
 axis(1,cex.axis=1.75)
 axis(2,at=seq(.1,.8,.1),cex.axis=1.75)
 axis(1,at=c(-2.25,2.25),labels=c("split","homog."),las=2,cex.axis=1.5,lwd=0,lwd.ticks = 1)
@@ -79,6 +81,7 @@ point.func(file.path="~/Documents/GitHub/immuno.var.vir.evo/results/p1W0X0Y1Z0.c
 
 plot(0,0,xlim=c(-2.25,2.25),ylim=c(.1,.8),xlab=expression(log[10](alpha)),ylab="CFR",type="n",axes=F,cex.lab=2)
 mtext("W=0 X=0.5 Y=0 Z=1",cex=2)
+mtext("C",adj=-.25,cex=1.5)
 axis(1,cex.axis=1.75)
 axis(2,at=seq(.1,.8,.1),cex.axis=1.75)
 axis(1,at=c(-2.25,2.25),labels=c("split","homog."),las=2,cex.axis=1.5,lwd=0,lwd.ticks = 1)
@@ -86,6 +89,7 @@ point.func(file.path="~/Documents/GitHub/immuno.var.vir.evo/results/p1W0X0.5Y0Z1
 
 plot(0,0,xlim=c(-2.25,2.25),ylim=c(.1,.8),xlab=expression(log[10](alpha)),ylab="CFR",type="n",axes=F,cex.lab=2)
 mtext("W=0 X=0 Y=0 Z=1",cex=2)
+mtext("D",adj=-.25,cex=1.5)
 axis(1,cex.axis=1.75)
 axis(2,at=seq(.1,.8,.1),cex.axis=1.75)
 axis(1,at=c(-2.25,2.25),labels=c("split","homog."),las=2,cex.axis=1.5,lwd=0,lwd.ticks = 1)
@@ -93,6 +97,7 @@ point.func(file.path="~/Documents/GitHub/immuno.var.vir.evo/results/p1W0X0Y0Z1.c
 
 plot(0,0,xlim=c(-2.25,2.25),ylim=c(.1,.8),xlab=expression(log[10](alpha)),ylab="CFR",type="n",axes=F,cex.lab=2)
 mtext("W=0 X=1 Y=0 Z=1",cex=2)
+mtext("E",adj=-.25,cex=1.5)
 axis(1,cex.axis=1.75)
 axis(2,at=seq(.1,.8,.1),cex.axis=1.75)
 axis(1,at=c(-2.25,2.25),labels=c("split","homog."),las=2,cex.axis=1.5,lwd=0,lwd.ticks = 1)
@@ -100,6 +105,7 @@ point.func(file.path="~/Documents/GitHub/immuno.var.vir.evo/results/p1W0X1Y0Z1.c
 
 plot(0,0,xlim=c(-2.25,2.25),ylim=c(.1,.8),xlab=expression(log[10](alpha)),ylab="CFR",type="n",axes=F,cex.lab=2)
 mtext("W=1 X=1 Y=1 Z=1",cex=2)
+mtext("F",adj=-.25,cex=1.5)
 axis(1,cex.axis=1.75)
 axis(2,at=seq(.1,.8,.1),cex.axis=1.75)
 axis(1,at=c(-2.25,2.25),labels=c("split","homog."),las=2,cex.axis=1.5,lwd=0,lwd.ticks = 1)
