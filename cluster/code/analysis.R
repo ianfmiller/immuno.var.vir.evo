@@ -23,7 +23,7 @@ d1<<-.1
 d2<<-0
 c1<<-1
 
-virulence.steps<-c(seq(0,.1,.005),seq(.10005,.25,by=.0005),seq(.25,.5,.01))
+virulence.steps<-c(seq(0,.1,.005),seq(.10005,.25,by=.0005),seq(.25,.5,.01)) #sigma in paper
 set.nonlinear.tradeoff(b1,b2,d1,d2,c1)
 
 source("writeSIResscDD.R")
