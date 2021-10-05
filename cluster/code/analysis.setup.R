@@ -3,10 +3,10 @@ library(deSolve)
 ## setup
 
 ### set immunity category midpoints for calculating frequencies
-dummy.immunity.categories<-seq(.005,.995,length.out = 21)
+dummy.immunity.categories<-seq(.005,.995,length.out = 21) #Shortcut equivalent to equation 4 in manuscript
 
 ### set values of immunity
-immunity.categories<-seq(0,1,length.out = 21)
+immunity.categories<-seq(0,1,length.out = 21) #M in manuscript
 
 ### set misc params
 n.immunity.categories<-length(immunity.categories) #### number of immunity categories
