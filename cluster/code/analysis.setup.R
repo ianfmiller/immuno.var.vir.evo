@@ -10,7 +10,7 @@ immunity.categories<-seq(0,1,length.out = 21)
 
 ### set misc params
 n.immunity.categories<-length(immunity.categories) #### number of immunity categories
-alphas<-10^(seq(-2,2,.25)) #### distribution parameters
+thetas<-10^(seq(-2,2,.25)) #### distribution parameters
 
 
 ## functions

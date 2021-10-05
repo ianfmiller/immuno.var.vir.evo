@@ -9,8 +9,7 @@ x<-0
 y<-0
 z<-0
 p.immune<-1
-alpha<-.01
-beta<-alpha
+theta<-.01
 
 ### demographic parameters
 birth.rate=.07
@@ -36,9 +35,9 @@ analysis.func<-function(i)
   v1<-i
   result<-data.frame("v1"=numeric(),"v2"=numeric(),"RE.res.val"=numeric(),"RE.inv.val"=numeric(),"xindex"=numeric(),"yindex"=numeric())
   #setup
-  if (alpha>0) {set.immunity.dist.beta(alpha,beta)}
-  if(alpha==-1) {set.immunity.dist.split()}
-  if(alpha==-2) {set.immunity.dist.single()}
+  if (theta>0) {set.immunity.dist.beta(theta,theta)}
+  if(theta==-1) {set.immunity.dist.split()}
+  if(theta==-2) {set.immunity.dist.single()}
   
   #simulate epidemic & pull equilibirum parameters
   v2<-0
@@ -86,12 +85,12 @@ for (i in 1:dim(analysis.out)[1])
   RE.inv.mat[xindex,yindex]<-analysis.out[i,"RE.inv"]
 }
 
-out<-c(alpha,ess.analysis(RE.inv.mat))
+out<-c(theta,ess.analysis(RE.inv.mat))
 names(out)<-c("shape","PIP","ES vir","repeller?","repeller vir","hyper vir?","upper erad?","upper erad vir","lower erad?","lower erad vir","mid.erad.lower?","mid.erad.lower.vir","mid.erad.upper?","mid.erad.upper.vir")
 
 # save file if working on cluster
 if(dir.exists("~/immuno.var.vir.evo/output"))
 {
   setwd("~/immuno.var.vir.evo/output")
-  saveRDS(out,file=paste("p",p.immune,"W",w,"X",x,"Y",y,"Z",z,"alpha",alpha,".RDS",sep=""))
+  saveRDS(out,file=paste("p",p.immune,"W",w,"X",x,"Y",y,"Z",z,"theta",theta,".RDS",sep=""))
 }

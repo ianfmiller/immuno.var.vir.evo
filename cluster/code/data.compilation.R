@@ -10,9 +10,9 @@ setwd("~/immuno.var.vir.evo/output")
 
 for (i in 1:19)
 {
-  alphas<-c(-2,-1,10^(seq(-2,2,.25)))
-  alpha<-alphas[i]
-  data<-readRDS(paste("p",p.immune,"W",w,"X",x,"Y",y,"Z",z,"alpha",alpha,".RDS",sep=""))
+  thetas<-c(-2,-1,10^(seq(-2,2,.25)))
+  theta<-thetas[i]
+  data<-readRDS(paste("p",p.immune,"W",w,"X",x,"Y",y,"Z",z,"theta",theta,".RDS",sep=""))
   out.data<-rbind(out.data,data)
 }
 

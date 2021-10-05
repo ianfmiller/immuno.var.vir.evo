@@ -2,7 +2,7 @@ rm(list=ls())
 
 # parameter sets to explore
 params.mat<-data.frame("p.immune"=c(1),"w"=c(1),"x"=c(1),"y"=c(1),"z"=c(1))
-alphas<-c(-2,-1,10^(seq(-2,2,.25)))
+thetas<-c(-2,-1,10^(seq(-2,2,.25)))
 
 for(k in 1:dim(params.mat)[1])
 {

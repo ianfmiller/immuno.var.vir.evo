@@ -25,7 +25,7 @@ data.compilation.lines[grep("z<-",data.compilation.lines)]<-paste("z<-",z,sep=""
 data.compilation.lines[grep("p.immune<-",data.compilation.lines)]<-paste("p.immune<-",p.immune,sep="")
 writeLines(data.compilation.lines,"data.compilation.R")
 
-for (i in 1:length(alphas))
+for (i in 1:length(thetas))
 {
   setwd(new.dir)
   dir.create(paste("dir.",i,sep=""))
@@ -39,7 +39,7 @@ for (i in 1:length(alphas))
   analysis.lines[grep("y<-",analysis.lines)]<-paste("y<-",y,sep="")
   analysis.lines[grep("z<-",analysis.lines)]<-paste("z<-",z,sep="")
   analysis.lines[grep("p.immune<-",analysis.lines)]<-paste("p.immune<-",p.immune,sep="")
-  analysis.lines[grep("alpha<-",analysis.lines)]<-paste("alpha<-",alphas[i],sep="")
+  analysis.lines[grep("theta<-",analysis.lines)]<-paste("theta<-",thetas[i],sep="")
   writeLines(analysis.lines,"analysis.R")
   
   file.copy("~/immuno.var.vir.evo/code/analysis.setup.R",paste(new.dir,"/dir.",i,sep=""))
