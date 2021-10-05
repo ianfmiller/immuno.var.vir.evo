@@ -133,7 +133,7 @@ getCFRs<-function()
   
   for (k in 1:n.immunity.categories) 
   {
-    new.cfr<-death.rate.disease.func(v1,immunity.categories[k])/(death.rate.disease.func(v1,immunity.categories[k])+death.rate+gamma.func(v1,immunity.categories[k]))
+    new.cfr<-death.rate.disease.func(alpha1,immunity.categories[k])/(death.rate.disease.func(alpha1,immunity.categories[k])+death.rate+gamma.func(alpha1,immunity.categories[k]))
     CFRs<-c(CFRs,new.cfr)
   }
   
